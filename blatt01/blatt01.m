@@ -18,3 +18,8 @@ aufgabe03;
 dbtype aufgabe04.m;
 
 aufgabe04;
+
+%% Aufgabe 5
+dbtype aufgabe05.m;
+
+aufgabe05;
