@@ -1,0 +1,120 @@
+
+% This LaTeX was auto-generated from MATLAB code.
+% To make changes, update the MATLAB code and republish this document.
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{color}
+
+\sloppy
+\definecolor{lightgray}{gray}{0.5}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+    
+    
+\subsection*{Contents}
+
+\begin{itemize}
+\setlength{\itemsep}{-1ex}
+   \item Aufgabe 7
+   \item Aufgabe 8
+\end{itemize}
+
+
+\subsection*{Aufgabe 7}
+
+\begin{verbatim}
+dbtype somefunc.m
+
+a = rand(5, 10);
+b = somefunc(a, 5);
+
+disp(a);
+disp(b);
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+1     function y = somefunc(x,n)
+2     y = 0;
+3     for i = 1 : n
+4     	y = y + x.^i;
+5     end
+  Columns 1 through 7
+
+    0.3367    0.5278    0.5518    0.9962    0.4547    0.7261    0.9223
+    0.6624    0.4116    0.5836    0.3545    0.4134    0.7829    0.7710
+    0.2442    0.6026    0.5118    0.9713    0.2177    0.6938    0.0427
+    0.2955    0.7505    0.0826    0.3464    0.1257    0.0098    0.3782
+    0.6802    0.5835    0.7196    0.8865    0.3089    0.8432    0.7043
+
+  Columns 8 through 10
+
+    0.7295    0.6237    0.9345
+    0.2243    0.2364    0.1079
+    0.2691    0.1771    0.1822
+    0.6730    0.8296    0.0991
+    0.4775    0.7669    0.4898
+
+  Columns 1 through 7
+
+    0.5054    1.0721    1.1681    4.9426    0.8176    2.1160    3.9488
+    1.7118    0.6912    1.3065    0.5462    0.6963    2.5453    2.4492
+    0.3228    1.3961    1.0116    4.5851    0.2782    1.9015    0.0446
+    0.4185    2.2920    0.0900    0.5275    0.1437    0.0099    0.6035
+    1.8171    1.3064    2.0709    3.5347    0.4457    3.0856    1.9693
+
+  Columns 8 through 10
+
+    2.1398    1.5011    4.0989
+    0.2890    0.3094    0.1209
+    0.3676    0.2152    0.2228
+    1.7741    2.9558    0.1100
+    0.8912    2.4174    0.9328
+
+\end{verbatim} \color{black}
+    
+
+\subsection*{Aufgabe 8}
+
+\begin{verbatim}
+dbtype sumx.m;
+
+%generate random vector
+size = 10;
+a = rand(2^size, 1);
+
+%calculate sum
+y = sumx(a, size);
+z = sum(a);
+
+%display result
+disp(y);
+disp(z);
+\end{verbatim}
+
+        \color{lightgray} \begin{verbatim}
+1     function y=sumx(x,L)
+2     
+3     if (L > 0)
+4     	%% left intervall 1 - 2^L/2
+5     	left = x(1:(2^L)/2);
+6     	%% right intervall  2^L/2 + 1 - 2^L
+7     	right = x((2^L)/2+1:2^L);
+8     	y = sumx(left, L-1) + sumx(right, L-1);
+9     else
+10    	y = x(1);
+11    end
+12    
+13    end
+  527.4870
+
+  527.4870
+
+\end{verbatim} \color{black}
+    
+
+
+\end{document}
+    
