@@ -1,0 +1,2 @@
+copyfile(fullfile('/home/amock/matlab_workspace/blatt01','aufgabe01.m'))
+publish('aufgabe01.m','pdf')
