@@ -46,7 +46,7 @@ title('alpha = 0.5')
 xlabel('Iterationen')
 ylabel('Relativer Fehler')
 
-%b)
+% b)
 % neues alpha sonst das gleiche
 alpha = 0.25;
 A = diag(ones(n-1,1)*alpha,1) + diag(ones(n-1,1)*alpha,-1) + diag(ones(n,1));

@@ -1,23 +1,21 @@
-function C=myCholesky(A)
-n=size(A,2);
-C=zeros(n,n);	
+function C = myCholesky(A)
+n = size(A,2);
+C = zeros(n,n);	
 
-for j=1:n %Zeilenindex
+for j=1:n
 	
-    %Nichtdiagonalelemente	
-	for k=1:j-1 %Spaltenindex
-		%display(k)
-		tmp=0;
+	for k=1:j-1 
+		tmp = 0;
 		for l=1:k-1
-			tmp=tmp+C(j,l)*conj(C(k,l));
+			tmp = tmp + C(j,l) * conj(C(k,l));
 		end
-		C(j,k)=1/C(k,k)*(A(j,k)-tmp);
+		C(j,k) = (A(j,k) - tmp) / C(k,k);
 	end
 	
-	%Diagonalelemente
-	cj=abs(C(j,:));
-	cj=cj.^2;
-	C(j,j)=sqrt(A(j,j)-sum(cj(1:j-1)));
+	cj = abs( C(j,:) );
+	cj = cj.^2;
+	cj_sum = sum(cj(1:j-1));
+	C(j,j) = sqrt(A(j,j) - cj_sum );
 	
 	end
 end
