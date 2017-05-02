@@ -29,7 +29,7 @@ A = diag(ones(n-1,1)*alpha,1) + diag(ones(n-1,1)*alpha,-1) + diag(ones(n,1));
 b = linspace(1,n,n)';
 x0 = zeros(n,1);
 
-rel_errors = [];
+rel_errors_a = [];
 real_x = inv(A)*b;
 
 
@@ -37,7 +37,7 @@ real_x = inv(A)*b;
 for k=1:kmax
 	x = JacobiVerfahren(A, b, x0, k);
 	x_error = norm(real_x - x)/norm(real_x);
-	rel_errors = [rel_errors; x_error];
+	rel_errors_a = [rel_errors_a; x_error];
 end
 
 
@@ -51,15 +51,17 @@ ylabel('Relativer Fehler')
 alpha = 0.25;
 A = diag(ones(n-1,1)*alpha,1) + diag(ones(n-1,1)*alpha,-1) + diag(ones(n,1));
 
-rel_errors = [];
+rel_errors_b = [];
 
 for k=1:kmax
 	x = JacobiVerfahren(A, b, x0, k);
 	x_error = norm(real_x - x)/norm(real_x);
-	rel_errors = [rel_errors; x_error];
+	rel_errors_b = [rel_errors_b; x_error];
 end
 
-plot(linspace(1,kmax,kmax), rel_errors);
-title('alpha = 0.25')
+T = [rel_errors_a, rel_errors_b];
+plot(linspace(1,kmax,kmax), T.','x-');
+title('Aufgabe 4.21')
 xlabel('Iterationen')
 ylabel('Relativer Fehler')
+legend('alpha = 0.5', 'alpha=0.25')
