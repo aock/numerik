@@ -12,11 +12,11 @@ for logn=Logn
   I=eye(n);
   
   % stelle die Matrix T auf
-  T=... %entsprechend zu ergaenzen
+  T=applyT(I);
 
   % stelle die Matrix C^(-1/2)TC^(-1/2) auf
   c=constructC(n);
-  U=... %entsprechend zu ergaenzen
+  U=applyInvSqrtC(c,I)*T*applyInvSqrtC(c,I);
   
   eigT=eig(T);
   eigU=eig(U);

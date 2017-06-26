@@ -14,9 +14,9 @@ axis equal;
 axis([0,255,0,255])
 
 
-
+funBlur = @blur;
 %Rekonstruktion ohne Vorkonditionierung
-vecAA=pcg(...) ; %entsprechend zu ergaenzen
+vecAA=pcg(funBlur,vecB) ; %entsprechend zu ergaenzen
 AA=devec(vecAA); %Umwandlung in Matrix
 
 subplot(2,2,3);
@@ -27,7 +27,9 @@ axis equal;
 axis([0,255,0,255])
 
 %Rekonstruktion mit Vorkonditionierung
-vecAA2=pcg(...); %entsprechend zu ergaenzen
+c=constructC(n);
+precond=@(x) precondC(c,x);
+vecAA2=pcg(funBlur, vecB, 10^(-6), 100, precond); %entsprechend zu ergaenzen
 AA2=devec(vecAA2);%Umwandlung in Matrix
 
 subplot(2,2,4);
