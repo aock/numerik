@@ -1,4 +1,4 @@
-%	Autor:  ...
+%	Autor:  Alexander Mock
 %	Kurs: Numerik Sommersemester 2017
 
 Logn=2:10;
@@ -28,7 +28,7 @@ for logn=Logn
     figure(1);    
     hold off
   end;
-  loglog(n*ones(size(eigT)),eigT,'r.',n*ones(size(eigT)),eigU,'b.');
+  loglog(n*ones(size(eigT)),eigT,'r.',n*ones(size(eigT)),eigU,'bx');
   hold on;
 end;
 
